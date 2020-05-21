@@ -17,10 +17,9 @@ jobs:
       run: 7z x -o"${{ github.workspace }}/NSIS_Plugins" "${{ github.workspace }}/envar_plugin.zip"
 
     - name: Create nsis installer
-      uses: joncloud/makensis-action@v1.2
+      uses: joncloud/makensis-action@v2.0
       with:
-        include-more-plugins: true
-        include-custom-plugins-path: ${{ github.workspace }}/NSIS_Plugins/Plugins/x86-ansi/
+        additional-plugin-paths: ${{ github.workspace }}/NSIS_Plugins/Plugins/
 
     - name: Upload artifact
       uses: actions/upload-artifact@v1.0.0
